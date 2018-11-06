@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import Form from "../components/Form";
-import TextInput from "../elements/TextInput/TextInput";
-import Button from "../elements/Button";
-import ButtonGroup from "../components/ButtonGroup";
+import Form from "../../components/Form/Form";
+import TextInput from "../../elements/TextInput/TextInput";
+import Button from "../../elements/Button/Button";
+import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 
-import "../styles/Fonts.css";
-import "../styles/Credentials.css";
+import "../../styles/Fonts.css";
+import "./Register.css";
 
 class Register extends Component {
   state = {
@@ -17,27 +17,9 @@ class Register extends Component {
     password: ""
   };
 
-  setName = value => {
+  onChange = (field, value) => {
     this.setState({
-      name: value
-    });
-  };
-
-  setSurname = value => {
-    this.setState({
-      surname: value
-    });
-  };
-
-  setEmail = value => {
-    this.setState({
-      email: value
-    });
-  };
-
-  setPassword = value => {
-    this.setState({
-      password: value
+      [field]: value
     });
   };
 
@@ -58,21 +40,29 @@ class Register extends Component {
       <div className="Login">
         <Form>
           <h1 className="title1">Regístrate</h1>
-          <TextInput type={"text"} label={"Nombre"} getValue={this.setName} />
           <TextInput
             type={"text"}
-            label={"Apellido"}
-            getValue={this.setSurname}
+            field={"name"}
+            label={"Nombre"}
+            onChange={this.onChange}
           />
           <TextInput
             type={"text"}
+            field={"surname"}
+            label={"Apellido"}
+            onChange={this.onChange}
+          />
+          <TextInput
+            type={"text"}
+            field={"email"}
             label={"Correo electrónico"}
-            getValue={this.setEmail}
+            onChange={this.onChange}
           />
           <TextInput
             type={"password"}
+            field={"password"}
             label={"Contraseña"}
-            getValue={this.setPassword}
+            onChange={this.onChange}
           />
           <ButtonGroup className="ButtonGroup">
             <Button

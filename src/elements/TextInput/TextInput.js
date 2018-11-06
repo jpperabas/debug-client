@@ -7,16 +7,13 @@ class TextInput extends React.Component {
     text: ""
   };
 
-  onChange = e => {
+  onChange = (field, e) => {
     this.setState({ text: e.target.value });
-  };
-
-  handleChange = e => {
-    this.props.getValue(e.target.value);
+    this.props.onChange(field, e.target.value);
   };
 
   render() {
-    const { type, label } = this.props;
+    const { type, field, label } = this.props;
 
     return (
       <div className="TextInput">
@@ -25,8 +22,7 @@ class TextInput extends React.Component {
           required
           value={this.state.text}
           onChange={e => {
-            this.onChange(e);
-            this.handleChange(e);
+            this.onChange(field, e);
           }}
         />
         <span className="highlight" />
