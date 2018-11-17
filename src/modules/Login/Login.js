@@ -7,21 +7,22 @@ import Button from "../../elements/Button/Button";
 import ButtonGroup from "../../components/ButtonGroup/ButtonGroup";
 
 import "../../styles/Fonts.css";
-import "./Register.css";
+import "./Login.css";
 
-class Register extends Component {
+class Login extends Component {
   onChange = (field, value) => {
     this.setState({
       [field]: value
     });
   };
 
-  register = () => {
+  login = () => {
     axios
-      .post("http://localhost:3001/user/register", this.state)
+      .post("http://localhost:3001/user/login", this.state)
       .then(res => {
         console.log(res.data.message);
-        console.log(res.data.stored_user);
+        console.log(res.data.user);
+        console.log(res.data.token);
       })
       .catch(res => {
         console.log(res.response.data.message);
@@ -30,23 +31,9 @@ class Register extends Component {
 
   render() {
     return (
-      <div className="Register">
+      <div className="Login">
         <Form>
-          <h1 className="title1">Regístrate</h1>
-          <TextInput
-            className={"TextInput"}
-            type={"text"}
-            field={"name"}
-            label={"Nombre"}
-            onChange={this.onChange}
-          />
-          <TextInput
-            className={"TextInput"}
-            type={"text"}
-            field={"surname"}
-            label={"Apellido"}
-            onChange={this.onChange}
-          />
+          <h1 className="title1">Inicia sesión</h1>
           <TextInput
             className={"TextInput"}
             type={"text"}
@@ -64,13 +51,13 @@ class Register extends Component {
           <ButtonGroup className="ButtonGroup">
             <Button
               className={"button text-button"}
-              label="ACCEDER"
+              label="OLVIDÉ MI CONTRASEÑA"
               //onClick={}
             />
             <Button
               className={"button contained-button"}
-              label="REGISTRARME"
-              onClick={this.register}
+              label="INICIAR SESIÓN"
+              onClick={this.login}
             />
           </ButtonGroup>
         </Form>
@@ -79,4 +66,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default Login;

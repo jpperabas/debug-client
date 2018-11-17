@@ -13,10 +13,10 @@ class TextInput extends React.Component {
   };
 
   render() {
-    const { type, field, label } = this.props;
+    const { className, type, field, label } = this.props;
 
     return (
-      <div className="TextInput">
+      <div className={className}>
         <input
           type={type}
           required
