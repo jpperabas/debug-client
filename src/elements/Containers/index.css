@@ -1,0 +1,8 @@
+.container {
+  height: 100%;
+}
+
+.container--center {
+  display: flex;
+  justify-content: center;
+}
