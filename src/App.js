@@ -1,5 +1,10 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch
+} from 'react-router-dom'
 import './App.css'
 
 import Register from './pages/Register'
@@ -10,8 +15,16 @@ class App extends Component {
     return (
       <Router>
         <div className="App-container">
-          <Route path={'/register'} component={Register} />
-          <Route path={'/login'} component={Login} />
+          <Switch>
+            <Route path={'/register'} component={Register} />
+            <Route path={'/login'} component={Login} />
+            <Route
+              path={'/'}
+              component={() => {
+                return <Redirect to="/login" />
+              }}
+            />
+          </Switch>
         </div>
       </Router>
     )

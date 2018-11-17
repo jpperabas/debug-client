@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { withRouter } from 'react-router-dom'
 
 import Form from '../../components/Form/Form'
 import { TextInput } from '../../elements/Inputs'
@@ -18,11 +19,12 @@ class Login extends Component {
 
   login = () => {
     axios
-      .post('http://192.168.15.6:3000/user/login', this.state)
+      .post('http://localhost:3001/user/login', this.state)
       .then(res => {
         console.log(res.data.message)
         console.log(res.data.user)
         console.log(res.data.token)
+        this.props.history.push('jaja')
       })
       .catch(res => {
         console.log(res.response.data.message)
@@ -64,4 +66,4 @@ class Login extends Component {
   }
 }
 
-export default Login
+export default withRouter(Login)

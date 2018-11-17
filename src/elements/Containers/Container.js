@@ -11,7 +11,7 @@ const Container = ({ children = [], center = false }) => {
 }
 
 Container.propTypes = {
-  children: PropTypes.array,
+  children: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
   center: PropTypes.bool
 }
 
