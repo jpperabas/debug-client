@@ -1,20 +1,21 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import { LoginForm } from "../modules/general";
+import { LoginForm } from '../modules/General'
+import { Container } from '../elements/Containers'
 
 class Login extends Component {
   static propTypes = {
     prop: PropTypes
-  };
+  }
 
   render() {
     return (
-      <div>
+      <Container center>
         <LoginForm />
-      </div>
-    );
+      </Container>
+    )
   }
 }
 
-export default Login;
+export default Login

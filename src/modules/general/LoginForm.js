@@ -18,7 +18,7 @@ class Login extends Component {
 
   login = () => {
     axios
-      .post('http://localhost:3001/user/login', this.state)
+      .post('http://192.168.15.6:3000/user/login', this.state)
       .then(res => {
         console.log(res.data.message)
         console.log(res.data.user)

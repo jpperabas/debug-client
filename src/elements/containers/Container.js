@@ -1,12 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './index.css'
 
-const Container = ({ children = [] }) => {
-  return <div className="container">{children}</div>
+const Container = ({ children = [], center = false }) => {
+  return (
+    <div className={`container ${center ? 'container--center' : ''}`}>
+      {children}
+    </div>
+  )
 }
 
 Container.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.array,
+  center: PropTypes.bool
 }
 
 export default Container
